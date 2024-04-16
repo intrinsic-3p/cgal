@@ -70,9 +70,6 @@ if(CGAL_BRANCH_BUILD)
   set(CGAL_CORE_PACKAGE_DIR
       "${CGAL_SOURCE_DIR}/Core"
       CACHE INTERNAL "Directory containing the Core package")
-  set(CGAL_GRAPHICSVIEW_PACKAGE_DIR
-      "${CGAL_SOURCE_DIR}/GraphicsView"
-      CACHE INTERNAL "Directory containing the GraphicsView package")
 
   message(STATUS "Installation package directory: ${CGAL_INSTALLATION_PACKAGE_DIR}")
   message(STATUS "Maintenance package directory: ${CGAL_MAINTENANCE_PACKAGE_DIR}")
@@ -101,9 +98,6 @@ else(CGAL_BRANCH_BUILD)
   set(CGAL_CORE_PACKAGE_DIR
       "${CGAL_SOURCE_DIR}"
       CACHE INTERNAL "Directory containing the Core package")
-  set(CGAL_GRAPHICSVIEW_PACKAGE_DIR
-      "${CGAL_SOURCE_DIR}"
-      CACHE INTERNAL "Directory containing the GraphicsView package")
 
   # Enable testing with BUILD_TESTING
   option(BUILD_TESTING "Build the testing tree." OFF)
@@ -645,12 +639,6 @@ cache_get(CGAL_3RD_PARTY_DEFINITIONS   )
 cache_get(CGAL_3RD_PARTY_INCLUDE_DIRS  )
 cache_get(CGAL_3RD_PARTY_LIBRARIES     )
 cache_get(CGAL_3RD_PARTY_LIBRARIES_DIRS)
-
-install(DIRECTORY "${CGAL_GRAPHICSVIEW_PACKAGE_DIR}/include/CGAL/Qt/" DESTINATION "${CGAL_INSTALL_INC_DIR}/CGAL/Qt" COMPONENT CGAL_Qt5)
-if(CGAL_BRANCH_BUILD)
-  install(DIRECTORY "${CGAL_GRAPHICSVIEW_PACKAGE_DIR}/demo/resources/" DESTINATION "${CGAL_INSTALL_CMAKE_DIR}/demo/resources" COMPONENT CGAL_Qt5)
-  install(DIRECTORY "${CGAL_GRAPHICSVIEW_PACKAGE_DIR}/demo/icons/" DESTINATION "${CGAL_INSTALL_CMAKE_DIR}/demo/icons" COMPONENT CGAL_Qt5)
-endif()
 
 #
 # Variables used when WITH_{demos|examples|tests} are TRUE
